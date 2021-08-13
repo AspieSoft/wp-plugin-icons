@@ -32,8 +32,8 @@ SOFTWARE.
     const img = $(`<img class="wp-plugin-icon" src="https://ps.w.org/${slug}/assets/icon-128x128.png">`);
     $('.plugin-title', this).prepend(img);
     img.on('error', function(){
-      if(this.src !== window.location.origin+'/wp-content/plugins/wp-plugin-icons/assets/plugin-icon.jpg'){
-        this.src = window.location.origin+'/wp-content/plugins/wp-plugin-icons/assets/plugin-icon.jpg';
+      if(this.src !== window.location.origin+'/wp-content/plugins/aspiesoft-wp-plugin-icons/assets/plugin-icon.jpg'){
+        this.src = window.location.origin+'/wp-content/plugins/aspiesoft-wp-plugin-icons/assets/plugin-icon.jpg';
       }else{
         this.style.display = 'none';
       }

@@ -1,4 +1,4 @@
-=== WP Plugin Icons ===
+=== AspieSoft WP Plugin Icons ===
 Contributors: AspieSoft
 Tags: AspieSoft, plugin, icon
 Requires at least: 3.0.1

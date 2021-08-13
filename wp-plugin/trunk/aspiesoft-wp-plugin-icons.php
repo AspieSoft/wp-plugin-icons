@@ -3,7 +3,7 @@
 * @package AspieSoftWPPluginIcons
 */
 /*
-Plugin Name: WP Plugin Icons
+Plugin Name: AspieSoft WP Plugin Icons
 Plugin URI: https://github.com/AspieSoft/aspiesoft-wp-plugin-icons
 Description: Puts icons next to the wordpress plugins in your installed plugins list to make navigation easier.
 Version: 1.0
