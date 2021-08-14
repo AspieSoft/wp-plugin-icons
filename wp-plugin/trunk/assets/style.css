@@ -1,5 +1,10 @@
 .wp-plugin-icon {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   padding: 10px;
+}
+
+.wp-list-table.plugins #the-list .plugin-title {
+  white-space: pre-wrap;
+  min-width: 25vw;
 }

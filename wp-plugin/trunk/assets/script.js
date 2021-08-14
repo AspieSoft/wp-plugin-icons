@@ -27,13 +27,22 @@ SOFTWARE.
     return;
   }
 
+  let pluginImgUrl = AspieSoftWPPluginIconsDefaultImageUrl;
+  if(!pluginImgUrl.match(new RegExp('^https?://([\\w_\\-\\.]*)'+window.location.host.replace(/[^\w_\-\.:]/g, '')))){
+    pluginImgUrl = window.location.origin+'/wp-content/plugins/aspiesoft-wp-plugin-icons/assets/plugin-icon.jpg';
+  }
+
   $('.wp-list-table.plugins #the-list tr').each(function(){
     const slug = this.getAttribute('data-slug');
-    const img = $(`<img class="wp-plugin-icon" src="https://ps.w.org/${slug}/assets/icon-128x128.png">`);
+    let size = 256;
+    const img = $(`<img class="wp-plugin-icon" src="https://ps.w.org/${slug}/assets/icon-${size}x${size}.png">`);
     $('.plugin-title', this).prepend(img);
     img.on('error', function(){
-      if(this.src !== window.location.origin+'/wp-content/plugins/aspiesoft-wp-plugin-icons/assets/plugin-icon.jpg'){
-        this.src = window.location.origin+'/wp-content/plugins/aspiesoft-wp-plugin-icons/assets/plugin-icon.jpg';
+      if(size === 256){
+        size = 128;
+        this.src = `https://ps.w.org/${slug}/assets/icon-${size}x${size}.png`;
+      }else if(this.src !== pluginImgUrl){
+        this.src = pluginImgUrl;
       }else{
         this.style.display = 'none';
       }

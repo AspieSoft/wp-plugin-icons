@@ -4,9 +4,9 @@
 */
 /*
 Plugin Name: AspieSoft WP Plugin Icons
-Plugin URI: https://github.com/AspieSoft/aspiesoft-wp-plugin-icons
+Plugin URI: https://github.com/AspieSoft/wp-plugin-icons
 Description: Puts icons next to the wordpress plugins in your installed plugins list to make navigation easier.
-Version: 1.0
+Version: 1.0.1
 Author: AspieSoft
 Author URI: https://www.aspiesoft.com
 License: GPLv2 or later
@@ -40,7 +40,7 @@ if(!class_exists('AspieSoft_WPPluginIcons')){
   class AspieSoft_WPPluginIcons{
 
     public $pluginName;
-    public $ver = '1.0';
+    public $ver = '1.0.1';
 
     function __construct(){
       $this->pluginName = plugin_basename(__FILE__);
