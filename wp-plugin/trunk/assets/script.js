@@ -34,13 +34,51 @@ SOFTWARE.
 
   $('.wp-list-table.plugins #the-list tr').each(function(){
     const slug = this.getAttribute('data-slug');
+
     let size = 256;
-    const img = $(`<img class="wp-plugin-icon" src="https://ps.w.org/${slug}/assets/icon-${size}x${size}.png">`);
+    let type = 'png';
+    let doneTrying = false;
+
+    const img = $(`<img class="wp-plugin-icon" src="https://ps.w.org/${slug}/assets/icon-${size}x${size}.${type}">`);
     $('.plugin-title', this).prepend(img);
-    img.on('error', function(){
+
+    function tryNewImage(){
       if(size === 256){
         size = 128;
-        this.src = `https://ps.w.org/${slug}/assets/icon-${size}x${size}.png`;
+        return;
+      }
+      switch(type){
+        case 'png':
+          type = 'jpg';
+          break;
+        case 'jpg':
+          type = 'webP';
+          break;
+        case 'webP':
+          type = 'webp';
+          break;
+        case 'webp':
+          type = 'jpeg';
+          break;
+        case 'jpeg':
+          type = 'gif';
+          break;
+        default:
+          doneTrying = true;
+          break;
+      }
+    }
+
+    img.on('error', function(){
+      if(doneTrying){
+        this.style.display = 'none';
+        return;
+      }
+
+      tryNewImage();
+
+      if(!doneTrying){
+        this.src = `https://ps.w.org/${slug}/assets/icon-${size}x${size}.${type}`;
       }else if(this.src !== pluginImgUrl){
         this.src = pluginImgUrl;
       }else{

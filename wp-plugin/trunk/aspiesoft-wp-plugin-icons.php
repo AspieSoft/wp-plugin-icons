@@ -6,7 +6,7 @@
 Plugin Name: AspieSoft WP Plugin Icons
 Plugin URI: https://github.com/AspieSoft/wp-plugin-icons
 Description: Puts icons next to the wordpress plugins in your installed plugins list to make navigation easier.
-Version: 1.0.1
+Version: 1.0.2
 Author: AspieSoft
 Author URI: https://www.aspiesoft.com
 License: GPLv2 or later
