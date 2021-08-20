@@ -28,8 +28,9 @@ SOFTWARE.
   }
 
   let pluginImgUrl = AspieSoftWPPluginIconsDefaultImageUrl;
-  if(!pluginImgUrl.match(new RegExp('^https?://([\\w_\\-\\.]*)'+window.location.host.replace(/[^\w_\-\.:]/g, '')))){
-    pluginImgUrl = window.location.origin+'/wp-content/plugins/aspiesoft-wp-plugin-icons/assets/plugin-icon.jpg';
+  if(!pluginImgUrl.match(new RegExp('^https?://([\\w_\\-\\.]*)'+window.location.host.replace(/[^\w_\-\.:]/g, ''))) && !pluginImgUrl.startsWith('/')){
+    // if the local fallback image fails to load with a same domain url
+    pluginImgUrl = undefined;
   }
 
   $('.wp-list-table.plugins #the-list tr').each(function(){
@@ -79,7 +80,7 @@ SOFTWARE.
 
       if(!doneTrying){
         this.src = `https://ps.w.org/${slug}/assets/icon-${size}x${size}.${type}`;
-      }else if(this.src !== pluginImgUrl){
+      }else if(pluginImgUrl && this.src !== pluginImgUrl){
         this.src = pluginImgUrl;
       }else{
         this.style.display = 'none';
