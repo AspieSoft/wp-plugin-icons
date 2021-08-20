@@ -5,7 +5,7 @@ Puts icons next to the wordpress plugins in your installed plugins list to make 
 ## CDN Installation
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/AspieSoft/wp-plugin-icons@1.0.2/trunk/assets/script.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AspieSoft/wp-plugin-icons@1.0.3/wp-plugin/trunk/assets/script.js"></script>
 ```
 
 ---
